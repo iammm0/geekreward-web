@@ -1,0 +1,9 @@
+/* 设置注册容器的最大宽度、外边距、内边距、背景、圆角和阴影 */
+.register-container {
+    max-width: 400px;
+    margin: 200px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

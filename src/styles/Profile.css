@@ -1,0 +1,14 @@
+/* 设置个人资料容器的最大宽度、外边距、内边距、背景、圆角和阴影 */
+.profile-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 设置表单项之间的间距 */
+.ant-form-item {
+    margin-bottom: 20px;
+}

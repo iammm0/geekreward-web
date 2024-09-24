@@ -1,0 +1,71 @@
+/* Header.css */
+
+/* Header 的基础样式 */
+.header-container {
+    background-color: #5f91c0;  /* 深蓝色背景 */
+    color: #a11e1e;  /* 白色文本 */
+    padding: 0 20px;  /* 左右内边距 */
+    height: 64px;  /* 固定高度 */
+    display: flex;
+    align-items: center;  /* 垂直居中 */
+    justify-content: space-between;  /* 左右对齐 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);  /* 添加阴影 */
+    z-index: 1000;
+}
+
+/* Logo 样式 */
+.header-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin-right: 20px;
+}
+
+/* 导航菜单样式 */
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-menu a {
+    color: #fff;
+    margin-left: 20px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.header-menu a:hover {
+    color: #40a9ff;  /* 悬停时的颜色 */
+}
+
+/* 用户操作（如登录/注册）样式 */
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.header-actions .ant-dropdown-link {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.header-actions .ant-dropdown-link:hover {
+    color: #40a9ff;  /* 悬停时的颜色 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 10px;
+    }
+
+    .header-menu a {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .header-actions .ant-dropdown-link {
+        font-size: 14px;
+    }
+}

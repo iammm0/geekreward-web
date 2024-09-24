@@ -1,0 +1,20 @@
+/* 设置页面容器的宽度、内边距和对齐方式 */
+.bounty-list-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 80px auto; /* 增加外边距 */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 居中对齐 */
+}
+
+/* 设置卡片的背景、圆角、阴影和内边距 */
+.card {
+    background: #e1e1ef;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(113, 89, 150);
+    margin-bottom: 20px; /* 增加底部外边距 */
+    padding: 20px;
+    width: 100%; /* 确保卡片宽度为100% */
+}
