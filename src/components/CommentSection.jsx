@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { List, Empty, Button, message } from 'antd';
-import TextArea from "antd/es/input/TextArea.js";
 import CommentCard from "../contexts/CommentCard.jsx";
 import PropTypes from "prop-types";
-import { UserContext } from "../contexts/UserContext.jsx"; // 引入UserContext
+import { UserContext } from "../contexts/UserContext.jsx";
+import TextArea from "antd/es/input/TextArea.js"; // 引入UserContext
 
 const CommentSection = ({ comments, loading, onCommentSubmit }) => {
     const { user } = useContext(UserContext); // 获取当前用户信息

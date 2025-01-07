@@ -45,40 +45,10 @@ import api from './api.js';
  */
 
 /**
- * 创建新的悬赏令
- * @param {BountyDTO} data - 悬赏令数据
- * @returns {Promise<Object>}
- */
-export const createBounty = async (data) => {
-    try {
-        const response = await api.post('/bounties', data);
-        return response.data;
-    } catch (error) {
-        console.error('Error creating bounty:', error);
-        throw error;
-    }
-};
-
-/**
- * 获取悬赏令详情
- * @param {string} id - 悬赏令 ID
- * @returns {Promise<BountyDTO>}
- */
-export const getBountyDetail = async (id) => {
-    try {
-        const response = await api.get(`/bounties/${id}`);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching bounty detail:', error);
-        throw error;
-    }
-};
-
-/**
  * 获取所有悬赏令
  * @returns {Promise<Array<BountyDTO>>}
  */
-export const getBounties = async () => {
+export const getAllBounties = async () => {
     try {
         const response = await api.get('/bounties');
         return response.data;
@@ -89,14 +59,59 @@ export const getBounties = async () => {
 };
 
 /**
- * 更新悬赏令
- * @param {number} id - 悬赏令 ID
- * @param {BountyDTO} data - 更新的数据
+ * 创建悬赏令（需JWT认证）
+ * @param {Object} bountyData - 悬赏令数据
  * @returns {Promise<BountyDTO>}
  */
-export const updateBounty = async (id, data) => {
+export const createBounty = async (bountyData) => {
     try {
-        const response = await api.put(`/bounties/${id}`, data);
+        const response = await api.post('/bounties', bountyData);
+        return response.data;
+    } catch (error) {
+        console.error('Error creating bounty:', error);
+        throw error;
+    }
+};
+
+/**
+ * 获取指定悬赏令
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<BountyDTO>}
+ */
+export const getBounty = async (bountyId) => {
+    try {
+        const response = await api.get(`/bounties/${bountyId}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching bounty:', error);
+        throw error;
+    }
+};
+
+/**
+ * 获取指定悬赏令的评论
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<Array<CommentDTO>>}
+ */
+export const getBountyComments = async (bountyId) => {
+    try {
+        const response = await api.get(`/bounties/${bountyId}/comments`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching bounty comments:', error);
+        throw error;
+    }
+};
+
+/**
+ * 更新悬赏令（需JWT认证）
+ * @param {string} bountyId - 悬赏令 ID
+ * @param {Object} updateData - 更新数据
+ * @returns {Promise<BountyDTO>}
+ */
+export const updateBounty = async (bountyId, updateData) => {
+    try {
+        const response = await api.put(`/bounties/${bountyId}`, updateData);
         return response.data;
     } catch (error) {
         console.error('Error updating bounty:', error);
@@ -104,15 +119,14 @@ export const updateBounty = async (id, data) => {
     }
 };
 
-
 /**
- * 删除悬赏令
- * @param {number} id - 悬赏令 ID
+ * 删除悬赏令（需JWT认证）
+ * @param {string} bountyId - 悬赏令 ID
  * @returns {Promise<Object>}
  */
-export const deleteBounty = async (id) => {
+export const deleteBounty = async (bountyId) => {
     try {
-        const response = await api.delete(`/bounties/${id}`);
+        const response = await api.delete(`/bounties/${bountyId}`);
         return response.data;
     } catch (error) {
         console.error('Error deleting bounty:', error);
@@ -121,35 +135,7 @@ export const deleteBounty = async (id) => {
 };
 
 /**
- * 获取用户发布的悬赏令
- * @returns {Promise<Array<BountyDTO>>}
- */
-export const getUserBounties = async () => {
-    try {
-        const response = await api.get('/user/bounties');
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching user bounties:', error);
-        throw error;
-    }
-};
-
-/**
- * 获取用户接收的悬赏令
- * @returns {Promise<Array<BountyDTO>>}
- */
-export const getReceivedBounties = async () => {
-    try {
-        const response = await api.get('/user/received-bounties');
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching received bounties:', error);
-        throw error;
-    }
-};
-
-/**
- * 点赞悬赏令
+ * 点赞悬赏令（需JWT认证）
  * @param {string} bountyId - 悬赏令 ID
  * @returns {Promise<Object>}
  */
@@ -164,7 +150,7 @@ export const likeBounty = async (bountyId) => {
 };
 
 /**
- * 取消点赞悬赏令
+ * 取消点赞悬赏令（需JWT认证）
  * @param {string} bountyId - 悬赏令 ID
  * @returns {Promise<Object>}
  */
@@ -179,25 +165,25 @@ export const unlikeBounty = async (bountyId) => {
 };
 
 /**
- * 添加评论
+ * 评论悬赏令（需JWT认证）
  * @param {string} bountyId - 悬赏令 ID
- * @param {{content: string}} commentData - 评论内容
- * @returns {Promise<Object>}
+ * @param {Object} commentData - 评论数据
+ * @returns {Promise<CommentDTO>}
  */
-export const addComment = async (bountyId, commentData) => {
+export const commentOnBounty = async (bountyId, commentData) => {
     try {
         const response = await api.post(`/bounties/${bountyId}/comment`, commentData);
         return response.data;
     } catch (error) {
-        console.error('Error adding comment:', error);
+        console.error('Error commenting on bounty:', error);
         throw error;
     }
 };
 
 /**
- * 评分悬赏令
+ * 评分悬赏令（需JWT认证）
  * @param {string} bountyId - 悬赏令 ID
- * @param {RatingDTO} ratingData - 评分数据
+ * @param {Object} ratingData - 评分数据
  * @returns {Promise<Object>}
  */
 export const rateBounty = async (bountyId, ratingData) => {
@@ -211,23 +197,8 @@ export const rateBounty = async (bountyId, ratingData) => {
 };
 
 /**
- * 获取悬赏令的评论
- * @param {number} bountyId - 悬赏令 ID
- * @returns {Promise<Array<CommentDTO>>}
- */
-export const getComments = async (bountyId) => {
-    try {
-        const response = await api.get(`/bounties/${bountyId}/comments`);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching comments:', error);
-        throw error;
-    }
-};
-
-/**
- * 获取用户与悬赏令的交互信息
- * @param {number} bountyId - 悬赏令 ID
+ * 获取用户的悬赏令互动信息（需JWT认证）
+ * @param {string} bountyId - 悬赏令 ID
  * @returns {Promise<Object>}
  */
 export const getUserBountyInteraction = async (bountyId) => {
@@ -235,8 +206,67 @@ export const getUserBountyInteraction = async (bountyId) => {
         const response = await api.get(`/bounties/${bountyId}/interaction`);
         return response.data;
     } catch (error) {
-        console.error('Error fetching user interaction:', error);
+        console.error('Error fetching user bounty interaction:', error);
         throw error;
     }
 };
 
+/**
+ * 结算悬赏令（需JWT认证）
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<Object>}
+ */
+export const settleBounty = async (bountyId) => {
+    try {
+        const response = await api.post(`/bounties/${bountyId}/settle-accounts`);
+        return response.data;
+    } catch (error) {
+        console.error('Error settling bounty:', error);
+        throw error;
+    }
+};
+
+/**
+ * 接收者确认提交所有里程碑（需JWT认证）
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<Object>}
+ */
+export const confirmMilestones = async (bountyId) => {
+    try {
+        const response = await api.post(`/bounties/${bountyId}/confirm-milestones`);
+        return response.data;
+    } catch (error) {
+        console.error('Error confirming milestones:', error);
+        throw error;
+    }
+};
+
+/**
+ * 发布者审核并确认所有里程碑（需JWT认证）
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<Object>}
+ */
+export const verifyMilestones = async (bountyId) => {
+    try {
+        const response = await api.post(`/bounties/${bountyId}/verify-milestones`);
+        return response.data;
+    } catch (error) {
+        console.error('Error verifying milestones:', error);
+        throw error;
+    }
+};
+
+/**
+ * 接收者申请悬赏令清算（需JWT认证）
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<Object>}
+ */
+export const applySettlement = async (bountyId) => {
+    try {
+        const response = await api.post(`/bounties/${bountyId}/settle`);
+        return response.data;
+    } catch (error) {
+        console.error('Error applying settlement:', error);
+        throw error;
+    }
+};

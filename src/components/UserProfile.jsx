@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {Button, Card, Typography, message, Col, Row, Tag} from 'antd';
+import {Button, Card, Typography, message, Tag} from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 import '../styles/UserProfile.css';

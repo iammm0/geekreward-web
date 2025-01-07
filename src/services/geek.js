@@ -23,30 +23,62 @@ import api from './api';
  */
 
 /**
- * 获取极客列表
+ * 获取极客排行榜概览信息
  * @returns {Promise<Array<GeekDTO>>}
  */
-export const getGeeks = async () => {
+export const getTopGeeks = async () => {
     try {
         const response = await api.get('/geeks');
         return response.data;
     } catch (error) {
-        console.error('Error fetching geeks:', error);
+        console.error('Error fetching top geeks:', error);
         throw error;
     }
 };
 
 /**
- * 获取极客详情
- * @param {number} id - 极客 ID
+ * 获取指定ID的极客公开信息
+ * @param {string} geekId - 极客 ID
  * @returns {Promise<GeekDTO>}
  */
-export const getGeekDetail = async (id) => {
+export const getGeekByID = async (geekId) => {
     try {
-        const response = await api.get(`/geeks/${id}`);
+        const response = await api.get(`/geeks/${geekId}`);
         return response.data;
     } catch (error) {
-        console.error('Error fetching geek detail:', error);
+        console.error('Error fetching geek by ID:', error);
+        throw error;
+    }
+};
+
+/**
+ * 向特定极客发出组队邀请（需JWT认证）
+ * @param {string} geekId - 极客 ID
+ * @param {Object} invitationData - 邀请数据
+ * @returns {Promise<Object>}
+ */
+export const sendInvitation = async (geekId, invitationData) => {
+    try {
+        const response = await api.post(`/geeks/${geekId}/invitation`, invitationData);
+        return response.data;
+    } catch (error) {
+        console.error('Error sending invitation:', error);
+        throw error;
+    }
+};
+
+/**
+ * 向特定极客或团队表达好感（需JWT认证）
+ * @param {string} geekId - 极客 ID
+ * @param {Object} affectionData - 好感数据
+ * @returns {Promise<Object>}
+ */
+export const expressAffection = async (geekId, affectionData) => {
+    try {
+        const response = await api.post(`/geeks/${geekId}/express-affection`, affectionData);
+        return response.data;
+    } catch (error) {
+        console.error('Error expressing affection:', error);
         throw error;
     }
 };

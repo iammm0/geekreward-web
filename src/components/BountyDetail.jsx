@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useParams } from 'react-router-dom';
-import {Button, Card, Col, List, message, Rate, Row, Table, Tag, Tooltip, Typography, Spin, Divider, Modal} from 'antd';
+import {Button, Card, Col, message, Rate, Row, Table, Tag, Tooltip, Typography, Spin, Divider, Modal} from 'antd';
 import '../styles/BountyDetail.css';
 import {getMilestonesByBountyId} from "../services/milestone.js";
 import {

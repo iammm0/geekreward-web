@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // 创建 axios 实例
 const api = axios.create({
-    baseURL: 'http://localhost:8080/api', // 根据你的后端实际 URL 配置
+    baseURL: 'http://localhost:8080', // 根据你的后端实际 URL 配置
     timeout: 10000,
 });
 

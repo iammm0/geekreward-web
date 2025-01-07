@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { List, Card, Button, Typography } from 'antd';
+import { List, Card, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import '../styles/BountyList.css';
 import {getBounties} from "../services/bounty.js";

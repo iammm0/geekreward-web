@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { updateUserInfo } from '../services/user';
 
 const { Step } = Steps;
-const { Option } = Select;
-
 const CompleteProfile = () => {
     const [current, setCurrent] = useState(0);
     const navigate = useNavigate();
