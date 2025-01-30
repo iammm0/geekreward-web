@@ -1,0 +1,30 @@
+/* src/components/PublisherApplicationManager.css */
+
+.publisher-application-manager-container {
+    margin-top: 24px;
+}
+
+/* 可选：为标题和按钮添加间距 */
+.publisher-application-manager-container .ant-divider {
+    margin-bottom: 16px;
+}
+
+.publisher-application-manager-container .ant-btn {
+    margin-bottom: 16px;
+}
+
+/* 可选：调整批准和拒绝按钮的样式 */
+.publisher-application-manager-container .ant-btn-primary {
+    margin-right: 8px;
+}
+
+/* 响应式设计：在较小屏幕上调整布局 */
+@media (max-width: 768px) {
+    .publisher-application-manager-container {
+        margin-top: 16px;
+    }
+
+    .publisher-application-manager-container .ant-btn {
+        margin-bottom: 12px;
+    }
+}

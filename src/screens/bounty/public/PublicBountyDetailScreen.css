@@ -1,0 +1,358 @@
+/* 引入Google字体（可根据需要修改或移除） */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* 设置全局CSS变量，方便日后调色 */
+:root {
+    --primary-color: #ff6f61;       /* 主色，可根据项目需求调整 */
+    --secondary-color: #4a4a4a;     /* 辅助色 */
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --font-family: 'Montserrat', sans-serif;
+    --box-shadow-base: 0 20px 30px rgba(0, 0, 0, 0.1);
+    --transition-base: 0.3s ease-in-out;
+}
+
+/* 页面进入淡入效果 */
+.fade-in-container {
+    animation: fadeIn 0.8s var(--transition-base) forwards;
+    opacity: 0;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* 页面整体容器：可加一个淡淡的背景渐变，提升层次 */
+.page-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(120deg, #ffffff 0%, var(--bg-color) 100%);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+/* 中间内容区样式：增加一点点边框与更柔和的阴影 */
+.main-content {
+    flex: 1;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--box-shadow-base);
+    overflow-y: auto;
+    position: relative;
+    transition: var(--transition-base);
+}
+
+/* 悬停时主内容稍微抬起 */
+.main-content:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* 左右操作区域（点赞、申请） */
+.action-area {
+    width: 120px;
+    height: 300px;
+    background: var(--primary-color);
+    border-radius: 0.75rem;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 微倾斜效果，增加“惊喜感” */
+.action-left {
+    transform: rotate(-3deg);
+    background: linear-gradient(to top left, #ff6f61, #ff8a61);
+}
+
+.action-right {
+    transform: rotate(3deg);
+    background: linear-gradient(to top right, #41c9ff, #6fb5f2);
+}
+
+/* 悬停时放大并复位倾斜 */
+.action-area:hover {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* 箭头与文字 */
+.action-arrow {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    animation: float 2s infinite ease-in-out;
+}
+.action-text {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 漂浮动画 */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 悬停时文字、箭头轻微变化 */
+.action-area:hover .action-text {
+    transform: scale(1.1);
+}
+.action-area:hover .action-arrow {
+    transform: scale(1.1);
+}
+
+/* 加载中的大转圈居中 */
+.loading-spinner {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+/* 分割线美化 */
+.ant-divider {
+    margin: 1rem 0;
+}
+
+/* 1. BountyBasicInfo 区域 */
+.bounty-basic-info {
+    background: linear-gradient(135deg, #fff 70%, #ffead6 100%);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.2);
+    position: relative;
+    transition: var(--transition-base);
+}
+.bounty-basic-info:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 111, 97, 0.3);
+}
+
+.bounty-title {
+    text-align: center;
+    color: #ff6f61;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.bounty-description {
+    background: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* 悬赏金和截止日期排版 */
+.bounty-reward,
+.bounty-deadline {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #d46b08;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+/* 2. AdditionalInfo 区域 */
+.difficulty,
+.category-tags,
+.tags-container,
+.other-info-container {
+    margin-bottom: 1rem;
+}
+
+.difficulty {
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+.difficulty-icon {
+    font-size: 1.2rem;
+}
+
+/* 根据难度等级调色 */
+.difficulty-easy {
+    color: #52c41a;
+}
+.difficulty-medium {
+    color: #faad14;
+}
+.difficulty-hard {
+    color: #ff4d4f;
+}
+.difficulty-expert {
+    color: #722ed1;
+}
+
+/* 分类标签 */
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.category-tag {
+    background-color: #e6f7ff;
+    color: #1890ff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    transition: background-color var(--transition-base);
+}
+.category-tag:hover {
+    background-color: #bae7ff;
+}
+
+/* 常规标签（Tags） */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.tag-item {
+    background-color: #f5f5f5;
+    color: var(--text-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.tag-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. Statistics 区域 */
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.stats-container > div {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-base);
+}
+.stats-container > div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.stats-container .label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--secondary-color);
+}
+.stats-container .value {
+    font-size: 1.25rem;
+    color: #fa541c;
+}
+
+/* 4. OtherInfo 区域 */
+.other-info-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.other-info-item {
+    flex: 1;
+    min-width: 180px;
+    background-color: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    transition: var(--transition-base);
+}
+.other-info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.other-info-icon {
+    margin-right: 0.75rem;
+    font-size: 1.5rem;
+    color: #52c41a;
+}
+.other-info-label {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: var(--secondary-color);
+}
+.other-info-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* 评论区外层 */
+.comment-section {
+    margin-top: 1.5rem;
+}
+
+/* 自定义确认框位置 */
+.ant-modal {
+    top: 300px !important; /* 根据需要自行调整 */
+}
+
+/* 小屏幕适配 */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .action-area {
+        width: 100%;
+        height: 80px;
+        margin-bottom: 1rem;
+        transform: rotate(0) !important;
+    }
+    .main-content {
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+        border-radius: 0;
+        box-shadow: none;
+        height: auto;
+        border: none;
+    }
+    .stats-container {
+        flex-direction: column;
+    }
+}

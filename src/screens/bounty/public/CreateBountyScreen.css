@@ -1,0 +1,71 @@
+/* 页面容器 */
+.create-bounty-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+
+/* 卡片样式 */
+.ant-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #fa541c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ant-card .ant-card-head {
+    background: rgba(250, 84, 28, 0.1);
+    border-bottom: 1px solid #fa541c;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #d4380d;
+}
+
+/* 步骤导航 */
+.ant-steps-item-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ant-steps-item-active .ant-steps-item-title {
+    color: #fa541c !important;
+}
+
+/* 按钮交互 */
+button {
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: scale(0.96);
+    box-shadow: none;
+}
+
+/* 表单间距 */
+.ant-form-item {
+    margin-bottom: 20px;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

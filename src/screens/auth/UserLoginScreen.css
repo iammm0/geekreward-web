@@ -1,0 +1,37 @@
+/* 主容器样式 */
+.login-container {
+    max-width: 400px;
+    margin: 250px auto;
+    padding: 24px;
+    background: linear-gradient(145deg, #fff4e6, #ffe7d0); /* 渐变背景 */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* 标题样式 */
+.login-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #d4380d; /* 悬赏主题色 */
+    margin-bottom: 24px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 按钮样式 */
+.animated-button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #d4380d;
+    border: none;
+    color: white;
+}
+
+.animated-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.animated-button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}

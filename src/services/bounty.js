@@ -45,18 +45,77 @@ import api from './api.js';
  */
 
 /**
- * 获取所有悬赏令
- * @returns {Promise<Array<BountyDTO>>}
+ * 最终完成清算（需JWT认证）
+ * 将状态改为Settled
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<Object>}
  */
-export const getAllBounties = async () => {
+export const settleBountyAccounts = async (bountyId) => {
     try {
-        const response = await api.get('/bounties');
+        const response = await api.post(`/bounties/${bountyId}/settle-accounts`);
         return response.data;
     } catch (error) {
-        console.error('Error fetching bounties:', error);
+        console.error('Error settling bounty:', error);
         throw error;
     }
 };
+
+/**
+ * 发布方取消清算（处于Settling时违约 -> Cancelled）
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<Object>}
+ */
+export const cancelSettlementByPublisher = async (bountyId) => {
+    try {
+        const response = await api.post(`/bounties/${bountyId}/cancel-settlement/publisher`);
+        return response.data;
+    } catch (error) {
+        console.error('Error cancelling settlement by publisher:', error);
+        throw error;
+    }
+};
+
+/**
+ * 接收方取消清算（处于Settling时违约 -> Cancelled）
+ * @param {string} bountyId - 悬赏令 ID
+ * @returns {Promise<Object>}
+ */
+export const cancelSettlementByReceiver = async (bountyId) => {
+    try {
+        const response = await api.post(`/bounties/${bountyId}/cancel-settlement/receiver`);
+        return response.data;
+    } catch (error) {
+        console.error('Error cancelling settlement by receiver:', error);
+        throw error;
+    }
+};
+
+/**
+ * 获取悬赏令列表（可带多种过滤参数）
+ * @param {Object} filters
+ * @param {string} [filters.status] - 可选状态，如 "Settled"
+ * @param {string} [filters.publisher_id] - 发起者ID
+ * @param {string} [filters.receiver_id] - 接收者ID
+ * @param {number} [filters.limit=20] - 每页条数
+ * @param {number} [filters.offset=0] - 偏移量
+ * @returns {Promise<Array<BountyDTO>>}
+ */
+export const getBountiesByFilter = async (filters = {}) => {
+    try {
+        // 传入的 filters 中的任意字段都会被放到 query string
+        const response = await api.get('/bounties', {
+            params: {
+                ...filters,
+            },
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching bounties with filters:', error);
+        throw error;
+    }
+};
+
+
 
 /**
  * 创建悬赏令（需JWT认证）
@@ -270,3 +329,4 @@ export const applySettlement = async (bountyId) => {
         throw error;
     }
 };
+

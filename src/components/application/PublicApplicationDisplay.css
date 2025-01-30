@@ -1,0 +1,27 @@
+/* src/components/PublicApplicationDisplay.css */
+
+.public-application-display-container {
+    margin-top: 24px;
+}
+
+/* 可选：为标题和表格添加间距 */
+.public-application-display-container .ant-divider {
+    margin-bottom: 16px;
+}
+
+/* 可选：调整表格的视觉效果 */
+.public-application-display-container .ant-table {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* 响应式设计：在较小屏幕上调整布局 */
+@media (max-width: 768px) {
+    .public-application-display-container {
+        margin-top: 16px;
+    }
+
+    .public-application-display-container .ant-divider {
+        margin-bottom: 12px;
+    }
+}

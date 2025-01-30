@@ -1,0 +1,107 @@
+.bounty-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: space-between;
+    padding: 16px;
+    gap: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bounty-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.bounty-header {
+    text-align: center;
+}
+
+.bounty-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    word-break: break-word;
+}
+
+.bounty-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.bounty-info {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 14px;
+    color: #555;
+}
+
+.bounty-icon {
+    font-size: 28px;
+    color: #faad14;
+}
+
+.bounty-reward {
+    font-weight: bold;
+    color: #fa8c16;
+}
+
+.bounty-deadline {
+    color: #888;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 2px;
+}
+
+.bounty-description {
+    font-size: 10px;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 2px;
+}
+
+
+.status-pending {
+    color: #faad14;
+    background-color: rgba(250, 173, 20, 0.2);
+}
+
+.status-active {
+    color: #52c41a;
+    background-color: rgba(82, 196, 26, 0.2);
+}
+
+.status-completed {
+    color: #1890ff;
+    background-color: rgba(24, 144, 255, 0.2);
+}
+
+/* 描述样式 */
+.bounty-description {
+    font-size: 14px;
+    color: #595959;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 12px;
+}
+
+/* 详情链接样式 */
+.bounty-detail-link {
+    display: inline-block;
+    font-weight: bold;
+    color: #1890ff;
+    text-decoration: underline;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.bounty-detail-link:hover {
+    color: #40a9ff;
+}

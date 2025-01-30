@@ -1,0 +1,76 @@
+.bounty-list-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bounty-grid {
+    display: grid;
+    gap: 24px; /* 悬赏令卡片之间的间距 */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 自动填充列 */
+    justify-content: center; /* 对齐到容器中心 */
+    align-items: start;
+    width: 100%; /* 保持与容器同宽 */
+    max-width: 1800px; /* 可选：设置最大宽度限制 */
+    height: 100%;
+}
+
+/* 让列表整体淡入出现（可复用同样的 fadeIn 动画） */
+.fade-in-container {
+    animation: fadeIn 0.4s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* 原本的 card 样式可以保留 */
+.card {
+    background: #e1e1ef;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(113, 89, 150);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+/* 在鼠标悬浮时放大并加大阴影 */
+.hover-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 标题样式 */
+.page-title {
+    font-size: 28px; /* 字体更大 */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #d4380d; /* 红色，突出悬赏感 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* 文字阴影，增强层次感 */
+    letter-spacing: 2px; /* 增加字符间距 */
+    position: relative;
+}
+
+/* 添加背景装饰 */
+.page-title::before, .page-title::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 2px;
+    background-color: #d4380d;
+    top: 50%;
+    transform: translateY(-50%);
+}
+

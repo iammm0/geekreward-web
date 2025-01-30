@@ -1,0 +1,81 @@
+/* GeekCard 容器 */
+.geek-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.geek-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 特殊排名样式 */
+.gold-rank {
+    border: 2px solid gold;
+}
+
+.silver-rank {
+    border: 2px solid silver;
+}
+
+.bronze-rank {
+    border: 2px solid #cd7f32;
+}
+
+/* 卡片内容 */
+.geek-card-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+}
+
+/* 排名徽章 */
+.rank-badge {
+    font-size: 14px;
+}
+
+/* 用户头像 */
+.geek-avatar {
+    border: 2px solid #1890ff;
+    padding: 2px;
+}
+
+/* 用户信息 */
+.geek-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.geek-name {
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.geek-reputation,
+.geek-solved-count {
+    color: #555;
+    font-size: 14px;
+}
+
+.geek-skills {
+    color: #888;
+    font-size: 14px;
+}
+
+.geek-detail-link {
+    font-weight: bold;
+    color: #1890ff;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.geek-detail-link:hover {
+    color: #40a9ff;
+}

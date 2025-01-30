@@ -9,7 +9,6 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
     'react/jsx-no-target-blank': 'off',
@@ -17,7 +16,12 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'react/react-in-jsx-scope': 'off', // React 17+ 不再需要在作用域中导入 React
-    'no-unused-vars': 'warn', // 让 no-unused-vars 仅作为警告而非错误
+    'react/react-in-jsx-scope': 'off', // 关闭 JSX 需要 React 的警告
+    'no-unused-vars': 'off', // 全局禁用
+  },
+  settings: {
+    react: {
+      version: 'detect', // 自动检测 React 版本
+    },
   },
 }

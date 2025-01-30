@@ -54,12 +54,11 @@ export const getGeekByID = async (geekId) => {
 /**
  * 向特定极客发出组队邀请（需JWT认证）
  * @param {string} geekId - 极客 ID
- * @param {Object} invitationData - 邀请数据
  * @returns {Promise<Object>}
  */
-export const sendInvitation = async (geekId, invitationData) => {
+export const sendInvitation = async (geekId,) => {
     try {
-        const response = await api.post(`/geeks/${geekId}/invitation`, invitationData);
+        const response = await api.post(`/geeks/${geekId}/invitation`);
         return response.data;
     } catch (error) {
         console.error('Error sending invitation:', error);
@@ -70,12 +69,11 @@ export const sendInvitation = async (geekId, invitationData) => {
 /**
  * 向特定极客或团队表达好感（需JWT认证）
  * @param {string} geekId - 极客 ID
- * @param {Object} affectionData - 好感数据
  * @returns {Promise<Object>}
  */
-export const expressAffection = async (geekId, affectionData) => {
+export const expressAffection = async (geekId) => {
     try {
-        const response = await api.post(`/geeks/${geekId}/express-affection`, affectionData);
+        const response = await api.post(`/geeks/${geekId}/express-affection`);
         return response.data;
     } catch (error) {
         console.error('Error expressing affection:', error);

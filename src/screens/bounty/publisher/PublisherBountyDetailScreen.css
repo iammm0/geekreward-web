@@ -1,0 +1,38 @@
+.publisher-bounty-detail-container {
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.bounty-info-container p {
+    font-size: 16px;
+    line-height: 1.8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bounty-info-container p button {
+    margin-left: 8px;
+}
+
+.ant-table {
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ant-table-thead > tr > th {
+    text-align: center;
+    background: #fafafa;
+    font-weight: bold;
+}

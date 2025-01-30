@@ -1,0 +1,68 @@
+/* 容器样式统一 */
+.stats-container-modern,
+.other-info-container-modern {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* 数据项之间的间距 */
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 16px;
+}
+
+.stats-container-modern:hover,
+.other-info-container-modern:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 项目样式统一 */
+.stats-item-modern,
+.other-info-item-modern {
+    display: flex;
+    align-items: center;
+    flex: 1 1 calc(50% - 16px); /* 每行显示两项，自动适应宽度 */
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stats-item-modern:hover,
+.other-info-item-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 图标样式统一 */
+.stats-icon-modern,
+.other-info-icon-modern {
+    font-size: 24px;
+    color: #1890ff;
+    margin-right: 12px;
+}
+
+/* 标签与值样式统一 */
+.stats-value-modern,
+.other-info-value-modern {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.stats-label-modern,
+.other-info-label-modern {
+    font-size: 14px;
+    color: #595959;
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 768px) {
+    .stats-item-modern,
+    .other-info-item-modern {
+        flex: 1 1 100%; /* 在小屏幕上每行只显示一项 */
+    }
+}

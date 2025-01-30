@@ -1,0 +1,23 @@
+/* 描述组件容器 */
+.bounty-description-container {
+    padding: 16px;
+    background: linear-gradient(145deg, #f0f9ff, #e6f7ff);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* 鼠标悬停样式 */
+.bounty-description-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 描述内容样式 */
+.bounty-description-content {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}

@@ -1,0 +1,33 @@
+/* src/components/ApplicationTable.css */
+
+/* 可选：自定义表格容器的样式 */
+.application-table-container {
+    width: 100%;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 可选：调整表格头部的样式 */
+.application-table-container .ant-table-thead > tr > th {
+    background-color: #fafafa;
+    font-weight: bold;
+}
+
+/* 可选：调整表格行的样式 */
+.application-table-container .ant-table-tbody > tr > td {
+    vertical-align: middle;
+}
+
+/* 响应式设计：在较小屏幕上调整表格布局 */
+@media (max-width: 768px) {
+    .application-table-container {
+        padding: 8px;
+    }
+
+    .application-table-container .ant-table-thead > tr > th,
+    .application-table-container .ant-table-tbody > tr > td {
+        padding: 8px;
+    }
+}

@@ -1,24 +1,25 @@
-// contexts/UserContext.jsx
-import React, { createContext, useState, useEffect } from 'react';
+import {useState, useEffect, createContext} from 'react';
 import PropTypes from 'prop-types';
 
-// 创建 UserContext
+// 创建一个 Context，默认值 null
 const UserContext = createContext(null);
 
+// 提供一个 Provider 组件
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
-    // 模拟从 API 或本地存储中获取用户信息的异步操作
+    // 在组件挂载时，从 localStorage 加载 user
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                // 模拟从本地存储或 API 中获取用户信息
-                const storedUser = JSON.parse(localStorage.getItem('user'));
+                const storedUser = localStorage.getItem('user');
+
+                // 检查 storedUser 是否为有效的 JSON
                 if (storedUser) {
-                    setUser(storedUser);
+                    const parsedUser = JSON.parse(storedUser);
+                    setUser(parsedUser);
                 } else {
-                    // 如果没有用户信息，可以执行额外的逻辑，比如重定向到登录页面
-                    setUser(null);
+                    setUser(null); // 没有用户信息时设置为 null
                 }
             } catch (error) {
                 console.error('获取用户信息失败:', error);
@@ -29,16 +30,28 @@ const UserProvider = ({ children }) => {
         fetchUser();
     }, []);
 
-    // 保存用户信息到本地存储
+    /**
+     * 保存用户信息到 state & localStorage
+     * @param {Object} userData - 后端返回的用户对象
+     */
     const saveUser = (userData) => {
-        setUser(userData);
-        localStorage.setItem('user', JSON.stringify(userData));
+        try {
+            setUser(userData);
+            localStorage.setItem('user', JSON.stringify(userData));
+        } catch (error) {
+            console.error('保存用户信息失败:', error);
+        }
     };
 
     // 移除用户信息（例如注销时）
     const removeUser = () => {
-        setUser(null);
-        localStorage.removeItem('user');
+        try {
+            setUser(null);
+            localStorage.removeItem('user');
+            localStorage.removeItem('token'); // 如果有存token，也一并清除
+        } catch (error) {
+            console.error('移除用户信息失败:', error);
+        }
     };
 
     return (

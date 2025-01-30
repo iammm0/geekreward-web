@@ -1,0 +1,60 @@
+.additional-info-modern {
+    padding: 16px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 16px;
+}
+
+.difficulty {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.difficulty.easy {
+    color: #52c41a;
+}
+
+.difficulty.medium {
+    color: #faad14;
+}
+
+.difficulty.hard {
+    color: #ff4d4f;
+}
+
+.category-tags-modern,
+.tags-container-modern {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.category-tag-modern,
+.tag-item-modern {
+    background: #e6f7ff;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.tag-item-modern:hover {
+    transform: scale(1.1);
+    background: #bae7ff;
+}
+
+.other-info-modern {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #595959;
+}
+
+.info-icon-modern {
+    margin-right: 8px;
+    color: #1890ff;
+    font-size: 16px;
+}

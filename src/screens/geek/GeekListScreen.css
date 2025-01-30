@@ -1,0 +1,65 @@
+/* 设置极客列表容器的最大宽度、外边距、内边距、背景、圆角和阴影 */
+.geek-list-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 80px auto; /* 增加外边距 */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 居中对齐 */
+}
+
+.geek-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Control item size */
+    gap: 16px; /* Space between cards */
+    max-width: 1200px; /* Optional: Limit the width of the grid */
+    width: 100%; /* Full width for responsive design */
+}
+
+
+/* 设置卡片的背景、圆角、阴影和内边距 */
+.geek-list-card {
+    background: #e1e1ef;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgb(113, 89, 150);
+    margin-bottom: 20px; /* 增加底部外边距 */
+    padding: 20px;
+    width: 100%; /* 确保卡片宽度为100% */
+}
+
+/* 让列表整体淡入 */
+.fade-in-container {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* 卡片悬浮放大 */
+.hover-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.animated-button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.animated-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.animated-button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}

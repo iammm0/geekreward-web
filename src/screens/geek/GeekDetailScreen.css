@@ -1,0 +1,285 @@
+
+/* GeekDetailScreen.css */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #5cdb94;
+    --secondary-color: #05386b;
+    --text-color: #333;
+    --bg-light: #f5f5f5;
+    --bg-dark: #0b0c10;
+    --font-family: 'Raleway', sans-serif;
+}
+
+/* 让页面在进入时有一个淡入效果 */
+.fade-in-container {
+    animation: fadeIn 0.8s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* 加载中状态 */
+.loading-container {
+    font-family: var(--font-family);
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin: 100px auto;
+}
+
+/* 页面主体容器 */
+.geek-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ffffff 25%, #f7f9fc 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    font-family: var(--font-family);
+}
+
+/* 左右侧的互动区域 */
+.action-area {
+    width: 100px;
+    height: 300px;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 为左右两侧分别做一个略微的旋转倾斜 */
+.action-left {
+    transform: rotate(-3deg);
+    margin-right: 1rem;
+}
+.action-right {
+    transform: rotate(3deg);
+    margin-left: 1rem;
+}
+
+/* Action 区域的悬停状态 */
+.action-area:hover {
+    transform: scale(1.05) rotate(0);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* 左右区域内部文字和箭头 */
+.action-text {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.action-arrow {
+    font-size: 2rem;
+}
+
+/* 中间主要内容区域 */
+.main-content {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 600px;
+}
+
+/* 页面主标题 */
+.page-title {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* 极客个人信息容器 */
+.geek-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* 头像 */
+.geek-avatar {
+    border: 3px solid var(--secondary-color);
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* 信息文本区域 */
+.geek-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+/* 各字段统一样式 */
+.geek-field {
+    margin: 0.4rem 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+.field-label {
+    font-weight: 600;
+    margin-right: 0.3rem;
+    color: var(--secondary-color);
+}
+.field-value {
+    flex: 1;
+    color: #444;
+}
+
+/* 邮件样式可以在 hover 时显示提示等 */
+.geek-email {
+    position: relative;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.geek-email:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* 文章段落（技能、经验等） */
+.ant-typography-paragraph {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+/* 对标签的基础样式进行自定义以匹配整体视觉风格 */
+.ant-tag {
+    margin: 0.2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.ant-tag:hover {
+    background-color: #39bd73;
+    cursor: pointer;
+}
+
+/* 小屏幕自适应 */
+@media (max-width: 768px) {
+    .geek-detail-container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .action-area {
+        width: 80px;
+        height: 80px;
+        margin: 1rem 0;
+        transform: rotate(0) !important;
+    }
+    .main-content {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 1.5rem;
+    }
+    .geek-profile {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .geek-avatar {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    .page-title {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* 左右操作区域样式 */
+.action-area {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    overflow: hidden;
+    background-size: 200% 200%;
+    animation: gradient-flow 5s linear infinite; /* 渐变背景动画 */
+}
+
+.action-left {
+    background: linear-gradient(135deg, #ff7875, #ff4d4f, #ff7875);
+}
+
+.action-right {
+    background: linear-gradient(135deg, #40a9ff, #1890ff, #40a9ff);
+}
+
+/* 渐变背景动画 */
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 提示文字初始状态 */
+.action-text {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+}
+
+/* 鼠标滑入时文字显现 */
+.action-area:hover .action-text {
+    opacity: 1;
+    transform: scale(1.2); /* 放大文字 */
+}
+
+/* 箭头初始状态 */
+.action-arrow {
+    font-size: 48px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    animation: float 2s infinite ease-in-out;
+    transition: all 0.5s ease;
+}
+
+/* 鼠标滑入时箭头隐藏 */
+.action-area:hover .action-arrow {
+    opacity: 0;
+    transform: scale(0.8); /* 缩小箭头 */
+}
+
+/* 按钮浮动动画 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}

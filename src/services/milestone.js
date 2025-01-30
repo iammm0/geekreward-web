@@ -21,7 +21,7 @@ import api from './api';
  */
 export const getMilestonesByBountyID = async (bountyId) => {
     try {
-        const response = await api.get(`/milestones/bounty/${bountyId}`);
+        const response = await api.get(`/bounties/${bountyId}/milestones`);
         return response.data;
     } catch (error) {
         console.error('Error fetching milestones:', error);
@@ -37,7 +37,7 @@ export const getMilestonesByBountyID = async (bountyId) => {
  */
 export const createMilestone = async (bountyId, milestoneData) => {
     try {
-        const response = await api.post(`/milestones/bounty/${bountyId}`, milestoneData);
+        const response = await api.post(`/bounties/${bountyId}/milestones`, milestoneData);
         return response.data;
     } catch (error) {
         console.error('Error creating milestone:', error);
@@ -48,12 +48,13 @@ export const createMilestone = async (bountyId, milestoneData) => {
 /**
  * 悬赏令发布者更新里程碑（需JWT认证）
  * @param {string} milestoneId - 里程碑 ID
+ * @param bountyId
  * @param {Object} updateData - 更新数据
  * @returns {Promise<MilestoneDTO>}
  */
-export const updateMilestone = async (milestoneId, updateData) => {
+export const updateMilestone = async (milestoneId, bountyId, updateData) => {
     try {
-        const response = await api.put(`/milestones/${milestoneId}/promulgator`, updateData);
+        const response = await api.put(`/bounties/${bountyId}/milestones/${milestoneId}/promulgator`, updateData);
         return response.data;
     } catch (error) {
         console.error('Error updating milestone:', error);
@@ -70,7 +71,7 @@ export const updateMilestone = async (milestoneId, updateData) => {
  */
 export const updateMilestoneByReceiver = async (bountyId, milestoneId, updateData) => {
     try {
-        const response = await api.put(`/milestones/${bountyId}/${milestoneId}/receiver`, updateData);
+        const response = await api.put(`/bounties/${bountyId}/milestones/${milestoneId}/receiver`, updateData);
         return response.data;
     } catch (error) {
         console.error('Error updating milestone by receiver:', error);
@@ -81,11 +82,12 @@ export const updateMilestoneByReceiver = async (bountyId, milestoneId, updateDat
 /**
  * 删除里程碑（需JWT认证）
  * @param {string} milestoneId - 里程碑 ID
+ * @param bountyId
  * @returns {Promise<Object>}
  */
-export const deleteMilestone = async (milestoneId) => {
+export const deleteMilestone = async (milestoneId, bountyId) => {
     try {
-        const response = await api.delete(`/milestones/${milestoneId}`);
+        const response = await api.delete(`/bounties/${bountyId}/milestones/${milestoneId}`);
         return response.data;
     } catch (error) {
         console.error('Error deleting milestone:', error);

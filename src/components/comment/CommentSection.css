@@ -1,0 +1,130 @@
+/* 评论输入区域样式 */
+.comment-input-container {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 输入框底部样式 */
+.comment-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+/* 字符计数样式 */
+.char-count {
+    font-size: 12px;
+    color: #999;
+}
+
+/* 主容器样式 */
+.comments-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+}
+
+.comments-section .ant-list {
+    flex-grow: 1;
+    margin-bottom: 16px;
+}
+
+/* 原有的按钮样式可删除，改用下面的箭头区域 */
+
+.action-area {
+    width: 20px;
+    height: 48px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #fa541c, #f5222d, #fa541c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-size: 200% 200%;
+    animation: gradient-flow 5s linear infinite; /* 让渐变有流动效果 */
+}
+
+/* 提交评论专用区域 */
+.comment-submit {
+    margin-left: 16px; /* 与字数统计有点间距 */
+    transform: rotate(0deg); /* 不倾斜 */
+}
+
+/* 悬停时放大 + 阴影 */
+.action-area:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* 箭头与文字 */
+.action-arrow {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    animation: float 2s infinite ease-in-out; /* 上下浮动动画 */
+}
+.action-text {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+    text-transform: none; /* 如果不想大写可改为none */
+    font-size: 1rem;
+}
+
+/* 悬停时，箭头隐藏、文字浮现 */
+.action-area:hover .action-arrow {
+    opacity: 0;
+    transform: scale(0.8);
+}
+.action-area:hover .action-text {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* 背景渐变移动动画 */
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 漂浮动画 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* 禁用态 */
+.disabled {
+    pointer-events: none; /* 禁止点击 */
+    opacity: 0.5;         /* 显示灰态 */
+    box-shadow: none;
+}

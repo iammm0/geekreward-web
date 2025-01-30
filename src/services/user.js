@@ -56,37 +56,16 @@ import api from "./api.js";
  */
 
 /**
- * 注册新用户
- * @param {RegisterInput} data - 注册信息
- * @returns {Promise<Object>}
+ * 注册新用户 (multipart/form-data)
+ * @param {FormData} formData
+ * @returns {Promise<Object>} 后端返回的数据
  */
-export const registerUser = async (data, p) => {
-    const formData = new FormData();
-
-    formData.append('Username', data.Username);
-    formData.append('Email', data.Email);
-    formData.append('Password', data.Password);
-    formData.append('FirstName', data.FirstName);
-    formData.append('LastName', data.LastName);
-    formData.append('DateOfBirth', data.DateOfBirth);
-    formData.append('Gender', data.Gender);
-
-    if (data.ProfilePicture) {
-        formData.append('ProfilePicture', data.ProfilePicture);
-    }
-    if (data.FieldOfExpertise) {
-        formData.append('FieldOfExpertise', data.FieldOfExpertise);
-    }
-    if (data.EducationLevel) {
-        formData.append('EducationLevel', data.EducationLevel);
-    }
-    if (data.Skills && data.Skills.length > 0) {
-        formData.append('Skills', JSON.stringify(data.Skills));
-    }
-
+export const registerUser = async (formData) => {
     try {
         const response = await api.post('/register', formData, {
-            headers: { 'Content-Type': 'multipart/form-data' }
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
         });
         return response.data;
     } catch (error) {

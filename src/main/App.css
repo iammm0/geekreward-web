@@ -1,0 +1,115 @@
+/* Header 容器样式 */
+.header-container {
+  /* 改进：保持原有红橙渐变，稍微调整角度并增加色彩层次 */
+  background: linear-gradient(90deg, #d4380d 0%, #ff7a45 100%);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 添加阴影 */
+  width: 100%;
+  position: relative; /* 方便后续在头部添加绝对定位元素 */
+  z-index: 10;
+}
+
+/* Logo 样式 */
+.header-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* 文字阴影 */
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* LOGO 悬浮态：轻微放大并调亮字体色 */
+.header-logo:hover {
+  transform: scale(1.05);
+  color: #ffd591; /* 可根据需求换成更亮的白或橙 */
+}
+
+/* 顶部 Menu 样式（AntD 横向菜单） */
+.ant-menu-horizontal {
+  background: transparent !important; /* 透明背景 */
+  border: none !important;           /* 去掉边框 */
+  flex-grow: 1;
+  justify-content: flex-end;         /* 菜单靠右 */
+  align-items: center;               /* 垂直居中 */
+  display: flex;
+}
+
+/* Menu Item 基础样式 */
+.ant-menu-horizontal > .ant-menu-item {
+  color: white !important;   /* 白色文字 */
+  font-weight: 500;
+  transition: all 0.3s ease; /* 平滑的悬浮效果 */
+  margin: 0 8px;             /* 适当增加菜单项之间的间距 */
+}
+
+/* Menu Item 悬浮状态 */
+.ant-menu-horizontal > .ant-menu-item:hover {
+  color: #ffe58f !important; /* 黄色高亮 */
+  transform: scale(1.1);     /* 放大效果 */
+  border-radius: 4px;        /* 与背景高亮同步 */
+}
+
+/* 选中菜单项样式 */
+.ant-menu-horizontal > .ant-menu-item-selected {
+  color: #fff; /* 保持白色 */
+  background: rgba(255, 255, 255, 0.2); /* 半透明背景 */
+  border-radius: 8px;
+}
+
+/* 去除选中项下方默认的横线 */
+.ant-menu-horizontal > .ant-menu-item::after {
+  border: none !important;
+}
+
+/* 通知与用户菜单图标 */
+.header-icon {
+  font-size: 20px;
+  color: white;
+  margin: 0 16px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header-icon:hover {
+  color: #ffe58f;       /* 黄色高亮 */
+  transform: scale(1.2); /* 悬浮放大 */
+}
+
+/* 主题切换图标样式 */
+.theme-switcher {
+  font-size: 20px;
+  color: white;
+  margin-left: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: flex;               /* 如果需要居中图标 */
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-switcher:hover {
+  color: #ffe58f;   /* 黄色高亮 */
+  transform: scale(1.2); /* 悬浮放大 */
+}
+
+/* 小屏幕适配（可根据需要添加更多细节） */
+@media (max-width: 768px) {
+  .header-container {
+    height: auto;
+    padding: 0 16px;
+    flex-wrap: wrap;
+  }
+
+  .header-logo {
+    margin-bottom: 8px;
+  }
+
+  .ant-menu-horizontal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

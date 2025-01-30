@@ -1,0 +1,52 @@
+/* src/components/MilestoneComponent.css */
+
+.milestone-component-container {
+    margin-top: 24px;
+}
+
+/* 可选：为标题和按钮添加间距 */
+.milestone-component-container .ant-divider {
+    margin-bottom: 16px;
+}
+
+.milestone-component-container .ant-btn {
+    margin-bottom: 16px;
+}
+
+/* 可选：调整创建里程碑按钮的样式 */
+.milestone-component-container .ant-btn-primary {
+    margin-bottom: 16px;
+}
+
+/* 调整表格的视觉效果 */
+.milestone-component-container .ant-table {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* 可选：调整表格头部的样式 */
+.milestone-component-container .ant-table-thead > tr > th {
+    background-color: #fafafa;
+    font-weight: bold;
+}
+
+/* 可选：调整表格行的样式 */
+.milestone-component-container .ant-table-tbody > tr > td {
+    vertical-align: middle;
+}
+
+/* 响应式设计：在较小屏幕上调整布局 */
+@media (max-width: 768px) {
+    .milestone-component-container {
+        margin-top: 16px;
+    }
+
+    .milestone-component-container .ant-btn {
+        margin-bottom: 12px;
+    }
+
+    .milestone-component-container .ant-table-thead > tr > th,
+    .milestone-component-container .ant-table-tbody > tr > td {
+        padding: 8px;
+    }
+}

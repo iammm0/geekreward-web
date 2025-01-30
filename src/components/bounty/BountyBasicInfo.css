@@ -1,0 +1,45 @@
+.bounty-basic-info-modern {
+    background: linear-gradient(135deg, #f9f9f9, #e6f7ff);
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bounty-basic-info-modern:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bounty-title-modern {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1890ff;
+    margin-bottom: 12px;
+}
+
+.bounty-description-modern {
+    font-size: 16px;
+    color: #595959;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.bounty-details-modern {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16px;
+}
+
+.bounty-reward-modern,
+.bounty-deadline-modern {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff7875;
+}
+
+.bounty-info-icon {
+    font-size: 20px;
+    margin-right: 8px;
+}

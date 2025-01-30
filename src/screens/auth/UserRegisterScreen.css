@@ -1,0 +1,83 @@
+/* 主容器样式 */
+.register-page-container {
+    max-width: 600px;
+    margin: 160px auto;
+    padding: 24px;
+    background: linear-gradient(145deg, #fff4e6, #ffe7d0); /* 渐变背景 */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 标题样式 */
+.register-page-container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #d4380d; /* 悬赏主题色 */
+    margin-bottom: 24px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* 步骤条样式 */
+.ant-steps-item-title {
+    font-weight: bold;
+    color: #d4380d; /* 悬赏主题色 */
+}
+
+.ant-steps-item-process .ant-steps-item-title {
+    color: #fa8c16; /* 高亮时为橙色 */
+}
+
+/* 按钮样式 */
+.animated-button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #d4380d;
+    border: none;
+    color: white;
+}
+
+.animated-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.animated-button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+/* 卡片样式 */
+.card {
+    border-radius: 12px; /* 圆角设计 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
+    background: linear-gradient(145deg, #fff4e6, #ffe7d0); /* 渐变背景，模拟羊皮卷效果 */
+    border: 1px solid #d4380d; /* 红色边框，突出悬赏主题 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden; /* 确保内容不会溢出 */
+}
+
+/* 卡片标题样式 */
+.card .ant-card-head {
+    background-color: #ffe7d0; /* 与卡片背景一致 */
+    font-weight: bold;
+    color: #d4380d; /* 标题文字颜色 */
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid #d4380d; /* 添加红色分割线 */
+}
+
+/* 卡片内容样式 */
+.card .ant-card-body {
+    padding: 24px;
+    font-family: 'Georgia', serif; /* 仿古典字体 */
+    font-size: 16px;
+    color: #444; /* 深灰色文字，易于阅读 */
+    line-height: 1.6; /* 增加行间距 */
+}
+
+/* 悬浮效果 */
+.card:hover {
+    transform: translateY(-4px); /* 卡片上移 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* 增强阴影 */
+    border-color: #fa541c; /* 悬浮时边框颜色加深 */
+}
