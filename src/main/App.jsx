@@ -1,6 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
 import {Link, Route, Routes, useNavigate} from 'react-router-dom';
-import {Badge, Dropdown, Layout, List, Menu, message} from 'antd';
+import {Dropdown, Layout, Menu, message} from 'antd';
 import {UserContext} from '../contexts/UserContext.jsx';
 import UserRegisterScreen from '../screens/auth/UserRegisterScreen.jsx';
 import UserLoginScreen from '../screens/auth/UserLoginScreen.jsx';
@@ -13,8 +13,7 @@ import GeekDetailScreen from "../screens/geek/GeekDetailScreen.jsx";
 import UserProfileScreen from "../screens/user/UserProfileScreen.jsx";
 import {getUserInfo, logoutUser} from "../services/user.js";
 import UserBountiesScreen from "../screens/bounty/manage/UserBountiesScreen.jsx";
-import {BellOutlined, BulbFilled, BulbOutlined, MenuOutlined} from "@ant-design/icons";
-import {getUserNotifications, markNotificationAsRead} from "../services/notification.js";
+import {MenuOutlined} from "@ant-design/icons";
 import PublisherBountyDetailScreen from "../screens/bounty/publisher/PublisherBountyDetailScreen.jsx";
 import PublisherAcceptedBountyScreen from "../screens/bounty/publisher/PublisherAcceptedBountyScreen.jsx";
 import ApplicantBountyManagementScreen from "../screens/bounty/applicant/ApplicantBountyManagementScreen.jsx";
@@ -61,26 +60,6 @@ const App = () => {
         document.documentElement.setAttribute('data-theme', effectiveTheme);
     }, [effectiveTheme]);
 
-    // 切换主题的函数
-    const toggleTheme = () => {
-        // 如果当前是 system，就直接切到 light 或 dark
-        // 如果当前是 light，就切到 dark
-        // 如果当前是 dark，就切到 system（或者你也可以循环：dark -> light -> system）
-        // 这里演示一种简单循环策略
-        if (theme === 'system') {
-            // system -> light
-            setTheme('light');
-            localStorage.setItem('theme', 'light');
-        } else if (theme === 'light') {
-            // light -> dark
-            setTheme('dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            // dark -> system
-            setTheme('system');
-            localStorage.setItem('theme', 'system');
-        }
-    };
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -145,26 +124,12 @@ const App = () => {
             ),
             key: '7',
         } : null,
-        {
-            label: (
-                <div onClick={toggleTheme} className="theme-switcher">
-                    {effectiveTheme === 'light' ? <BulbOutlined style={{ fontSize: '20px' }}/> : <BulbFilled style={{ fontSize: '20px' }}/>}
-                </div>
-            ),
-            key: '8'
-        }
     ].filter(Boolean);
-
-    // Check the menuItems type and log it
-    console.log(Array.isArray(menuItems), menuItems);
 
     return (
         <div id="root">
             <Layout style={{ minHeight: '100vh', width: '100%' }}>
                 <Header className="header-container">
-                    <div className="header-logo" onClick={() => navigate('/')}>
-                        🔖 GeekReward
-                    </div>
                     <Menu
                         theme="dark"
                         mode="horizontal"
