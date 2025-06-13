@@ -4,6 +4,8 @@ import { BellOutlined } from '@ant-design/icons';
 import './NotificationDropdown.css';
 import { getUserNotifications, markNotificationAsRead } from "../../services/notification.js";
 
+const isAuthenticated = !!localStorage.getItem('authToken');
+
 const NotificationDropdown = () => {
     const [notifications, setNotifications] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,6 +14,11 @@ const NotificationDropdown = () => {
 
     // 获取通知数据
     useEffect(() => {
+        if (!isAuthenticated) {
+            setLoading(false);
+            return;
+        }
+
         const fetchNotifications = async () => {
             try {
                 const data = await getUserNotifications();
